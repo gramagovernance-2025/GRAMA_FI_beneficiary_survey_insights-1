@@ -96,22 +96,6 @@ h3 {
   width: 100%;
 }
 
-.experience-card {
-  background: white;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  border: 1px solid #e0e0e0;
-  text-align: center;
-}
-
-.experience-card h4 {
-  color: #800019;
-  margin: 0 0 10px 0;
-  font-size: 18px;
-  font-weight: 600;
-}
-
 .exp-value {
   font-size: 26px;
   font-weight: 700;
@@ -136,17 +120,43 @@ h3 {
   grid-template-columns: 2fr 1fr 1fr;
   gap: 25px;
   margin-top: 30px;
-  align-items: stretch; /* all items same height */
+  align-items: stretch;
+}
+
+.experience-item {
+  height: 330px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  padding: 20px;
 }
 
 .experience-chart {
-  height: 260px;  /* tune between 240—300 */
   overflow: hidden;
 }
 
-.experience-card {
-  height: 260px;  /* same height as chart */
+.experience-chart iframe {
+  flex-grow: 1;
+  width: 100%;
+  border: none;
 }
+
+  
+.exp-value {
+  font-size: 32px; /* Larger font for balance */
+  font-weight: 700;
+  color: #800019;
+  margin-top: 10px;
+}
+
+.exp-label {
+  font-size: 16px;  /* Increase size for proportion */
+  opacity: 0.8;
+  margin-top: 5px;
+}
+
 
   </style>
 </head>
@@ -210,14 +220,13 @@ h3 {
 <div class="experience-grid">
 
   <!-- COLUMN 1 — STACKED BAR CHART -->
-  <div class="chart-box experience-chart">
+  <div class="experience-item experience-chart">
     <h3>Have you ever taken a loan from your Jeevika Samooh?</h3>
 
     <iframe title="" aria-label="Stacked Bars" id="datawrapper-chart-Hd8sK"
       src="https://datawrapper.dwcdn.net/Hd8sK/1/" 
       scrolling="no" frameborder="0"
-      style="width: 100%; border: none;"
-      height="320" data-external="1">
+      style="width: 100%; border: none; min-height: 200px;" data-external="1"
     </iframe>
 
     <script type="text/javascript">
@@ -235,7 +244,7 @@ h3 {
   </div>
 
   <!-- COLUMN 2 — SCORECARD 1 -->
-  <div class="experience-card">
+  <div class="experience-item">
     <h4> Mean Loans Taken</h4>
     <div class="exp-value">2.40</div>
     <div class="exp-label">Median: 2</div>
@@ -243,7 +252,7 @@ h3 {
   </div>
 
   <!-- COLUMN 3 — SCORECARD 2 -->
-  <div class="experience-card">
+  <div class="experience-item">
     <h4> Mean Delivery Time of Loan (Days)</h4>
     <div class="exp-value">23.62</div>
     <div class="exp-label">Median: 10</div>
