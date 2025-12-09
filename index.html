@@ -96,14 +96,6 @@ h3 {
   width: 100%;
 }
 
-.experience-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr; /* big chart + 2 small cards */
-  gap: 25px;
-  margin-top: 30px;
-  align-items: start;
-}
-
 .experience-card {
   background: white;
   border-radius: 8px;
@@ -133,11 +125,29 @@ h3 {
 }
 
     
-    iframe {
-      width: 100%;
-      border: none;
-      min-height: 450px;      
-    }
+  iframe {
+  width: 100%;
+  border: none;
+  min-height: 250px; /* smaller & balanced */
+}
+
+.experience-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 25px;
+  margin-top: 30px;
+  align-items: stretch; /* all items same height */
+}
+
+.experience-chart {
+  height: 260px;  /* tune between 240—300 */
+  overflow: hidden;
+}
+
+.experience-card {
+  height: 260px;  /* same height as chart */
+}
+
   </style>
 </head>
 
@@ -200,8 +210,8 @@ h3 {
 <div class="experience-grid">
 
   <!-- COLUMN 1 — STACKED BAR CHART -->
-  <div class="chart-box" style="min-height: 350px;">
-    <h3>Overall SHG Experience</h3>
+  <div class="chart-box experience-chart">
+    <h3>Have you ever taken a loan from your Jeevika Samooh?</h3>
 
     <iframe title="" aria-label="Stacked Bars" id="datawrapper-chart-Hd8sK"
       src="https://datawrapper.dwcdn.net/Hd8sK/1/" 
@@ -226,7 +236,7 @@ h3 {
 
   <!-- COLUMN 2 — SCORECARD 1 -->
   <div class="experience-card">
-    <h4>Jeevika Loans Taken</h4>
+    <h4> Mean Loans Taken</h4>
     <div class="exp-value">2.40</div>
     <div class="exp-label">Median: 2</div>
     <div class="exp-label">Range: 1–99</div>
@@ -234,7 +244,7 @@ h3 {
 
   <!-- COLUMN 3 — SCORECARD 2 -->
   <div class="experience-card">
-    <h4>Loan Tenure (Months)</h4>
+    <h4> Mean Delivery Time of Loan (Days)</h4>
     <div class="exp-value">23.62</div>
     <div class="exp-label">Median: 10</div>
     <div class="exp-label">Range: 0–180</div>
