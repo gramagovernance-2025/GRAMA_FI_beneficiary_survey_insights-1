@@ -34,41 +34,45 @@
       margin-top: 40px;
     }
 
-    .chart-box {
+    .kpi-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      margin-bottom: 40px;
+    }
+
+    .kpi-card {
       background: white;
-      padding: 20px;
-      margin: 20px 0;
-      border-radius: 8px;
+      padding: 30px 20px;
+      text-align: center;
+      border-radius: 10px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
-    /* Scorecard at top */
-    .scorecard {
-      background: white;
-      color: #800019;
-      padding: 20px 25px;
-      border-radius: 8px;
-      text-align: center;
+    .kpi-title {
+      font-size: 18px;
       font-weight: 600;
-      font-size: 30px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.12);
-      width: 260px;
-      margin: 20px auto 40px;
-      border: 1px solid #e0e0e0;
+      color: #800019;
+      margin-bottom: 10px;
     }
 
-    .scorecard-label {
-      font-size: 16px;
-      opacity: 0.8;
-      font-weight: 400;
-      margin-top: 8px;
+    .kpi-value {
+      font-size: 48px;
+      font-weight: 700;
+      color: #800019;
+      margin-bottom: 10px;
     }
 
-    /* Grid for respondent characteristics charts */
-    .chart-grid {
+    .kpi-sub {
+      font-size: 18px;
+      opacity: 0.85;
+      margin-top: 4px;
+    }
+
+    .two-chart-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      grid-gap: 25px;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
       margin-top: 30px;
     }
 
@@ -80,101 +84,17 @@
     }
 
     .chart-card h3 {
-      margin-top: 0;
-      color: #800019;
       text-align: center;
-      font-size: 20px;
+      color: #800019;
       margin-bottom: 15px;
-      font-weight: 600;
     }
 
     iframe {
       width: 100%;
       border: none;
     }
-
-    /* Experience section */
-    .experience-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: 25px;
-      margin-top: 30px;
-      align-items: stretch;
-    }
-
-    .experience-item {
-      display: flex;
-      flex-direction: column;
-      border-radius: 8px;
-      background: white;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      padding: 20px;
-      text-align: center;
-    }
-
-    .experience-item h3,
-    .experience-item h4 {
-      margin: 0 0 10px 0;
-      color: #800019;
-      font-weight: 600;
-    }
-
-    .experience-chart iframe {
-      flex-grow: 1;
-      width: 100%;
-      border: none;
-      overflow: hidden;
-    }
-
-    .exp-value {
-      font-size: 32px;
-      font-weight: 700;
-      color: #800019;
-      margin-top: 15px;
-    }
-
-    .exp-label {
-      font-size: 16px;
-      opacity: 0.8;
-      margin-top: 5px;
-    }
-
-    /* Stretch & center scorecards */
-  .experience-item:not(.experience-chart) {
-    justify-content: center;
-    padding-top: 47px;
-    padding-bottom: 47px;
-  }
-
-  /* Bigger main number */
-  .exp-value {
-    font-size: 52px;
-    font-weight: 700;
-    margin-bottom: 15px;
-  }
-
-  /* Bigger supporting text */
-  .exp-label {
-    font-size: 22px;
-    opacity: 0.85;
-    margin-top: 6px;
-  }
-
-.two-chart-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;   /* TWO equal columns */
-  gap: 25px;                        /* space between charts */
-  margin-top: 30px;
-}
-
-.two-chart-grid .chart-card {
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-    
   </style>
+
 </head>
 
 <body>
@@ -186,102 +106,55 @@
 
 <div class="container">
 
-  <!-- TOP SCORECARD -->
-  <div class="scorecard">
-    450
-    <div class="scorecard-label">Total Respondents Surveyed</div>
-  </div>
+  <!-- KPI SCORECARDS ROW -->
+  <div class="kpi-row">
 
-  <!-- HEATMAP -->
-  <div class="chart-box">
-    <h3>Respondents by Districts</h3>
-    <iframe title="" aria-label="Choropleth map"
-      src="https://datawrapper.dwcdn.net/HC2rl/4/"
-      height="507"
-      data-external="1">
-    </iframe>
-  </div>
-
-  <h2>Respondent Characteristics</h2>
-
-  <!-- PIE CHART GRID -->
-  <div class="chart-grid">
-
-    <div class="chart-card">
-      <h3>Income Level</h3>
-      <iframe src="https://datawrapper.dwcdn.net/1Dc9F/3/" height="581"></iframe>
+    <!-- KPI 1 -->
+    <div class="kpi-card">
+      <div class="kpi-title">Total Respondents Surveyed</div>
+      <div class="kpi-value">450</div>
     </div>
 
-    <div class="chart-card">
-      <h3>Education Level</h3>
-      <iframe src="https://datawrapper.dwcdn.net/f6O2L/1/" height="533"></iframe>
+    <!-- KPI 2 -->
+    <div class="kpi-card">
+      <div class="kpi-title">Mean Loans Taken</div>
+      <div class="kpi-value">2.40</div>
+      <div class="kpi-sub">Median: 2</div>
+      <div class="kpi-sub">Range: 1–99</div>
     </div>
 
-    <div class="chart-card">
-      <h3>Religion</h3>
-      <iframe src="https://datawrapper.dwcdn.net/3pQdT/2/" height="493"></iframe>
-    </div>
-
-    <div class="chart-card">
-      <h3>Caste</h3>
-      <iframe src="https://datawrapper.dwcdn.net/Fm16H/2/" height="533"></iframe>
-    </div>
-
-    <div class="chart-card">
-      <h3>Membership Status</h3>
-      <iframe src="https://datawrapper.dwcdn.net/DHMgq/2/" height="493"></iframe>
+    <!-- KPI 3 -->
+    <div class="kpi-card">
+      <div class="kpi-title">Mean Loan Amount (₹)</div>
+      <div class="kpi-value">37,418</div>
+      <div class="kpi-sub">Min: 10</div>
+      <div class="kpi-sub">Max: 200,000</div>
     </div>
 
   </div>
 
-  <h2>Overall Experience of a Jeevika SHG Member</h2>
+  <h2>Loan Insights</h2>
 
-  <!-- EXPERIENCE SECTION -->
-  <div class="experience-grid">
+  <!-- TWO CHART GRID -->
+  <div class="two-chart-grid">
 
-    <!-- Stacked bar chart -->
-    <div class="experience-item experience-chart">
+    <!-- Horizontal Bar Chart -->
+    <div class="chart-card">
+      <h3>Loan Purpose vs Loan Use</h3>
+      <iframe src="https://datawrapper.dwcdn.net/irQy6/2/" height="410"></iframe>
+    </div>
+
+    <!-- Stacked Bar Chart -->
+    <div class="chart-card">
       <h3>Have you ever taken a loan from your Jeevika Samooh?</h3>
-      <iframe src="https://datawrapper.dwcdn.net/Hd8sK/1/" height="200"></iframe>
+      <iframe src="https://datawrapper.dwcdn.net/Hd8sK/1/" height="300"></iframe>
     </div>
 
-    <!-- Scorecard 1 -->
-    <div class="experience-item">
-      <h4>Mean Loans Taken</h4>
-      <div class="exp-value">2.40</div>
-      <div class="exp-label">Median: 2</div>
-      <div class="exp-label">Range: 1–99</div>
-    </div>
-
-    <!-- Scorecard 2 -->
-    <div class="experience-item">
-      <h4>Mean Delivery Time of Loan (Days)</h4>
-      <div class="exp-value">23.62</div>
-      <div class="exp-label">Median: 10</div>
-      <div class="exp-label">Range: 0–180</div>
-    </div>
-
-  </div>
-
-<div class="two-chart-grid">
-
-  <!-- Horizontal Bar Chart -->
-  <div class="chart-card">
-    <h3>Loan Purpose vs Loan Use </h3>
-    <iframe title="" aria-label="Bar Chart" id="datawrapper-chart-irQy6" src="https://datawrapper.dwcdn.net/irQy6/2/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="409" data-external="1"></iframe><script type="text/javascript">window.addEventListener("message",function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r,i=0;r=e[i];i++)if(r.contentWindow===a.source){var d=a.data["datawrapper-height"][t]+"px";r.style.height=d}}});</script>
-  </div>
-
-    <!-- Vertical Bar Chart -->
-  <div class="chart-card">
-    <h3>SHG members believe that the loan came from... </h3>
-     <iframe title="" aria-label="Column Chart" id="datawrapper-chart-ffVW4" src="https://datawrapper.dwcdn.net/ffVW4/4/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="446" data-external="1"></iframe><script type="text/javascript">window.addEventListener("message",function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r,i=0;r=e[i];i++)if(r.contentWindow===a.source){var d=a.data["datawrapper-height"][t]+"px";r.style.height=d}}});</script>
   </div>
 
 </div>
 
-</div>
-
-<!-- UNIVERSAL DATAWRAPPER RESIZE SCRIPT -->
+<!-- Datawrapper Auto-Resize -->
 <script>
 window.addEventListener("message", event => {
   if (event.data["datawrapper-height"]) {
