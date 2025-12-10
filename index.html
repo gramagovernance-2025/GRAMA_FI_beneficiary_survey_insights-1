@@ -174,26 +174,6 @@ iframe {
   display: flex;
   flex-direction: column;
 }
-
-/* Force iframe to fill the available height */
-.two-col-row iframe {
-  flex-grow: 1;
-  height: 100% !important;
-}
-
-.equal-height-wrapper {
-  height: 480px;          /* Set equal HEIGHT for both charts */
-  overflow: hidden;       /* Removes extra white space */
-  position: relative;     /* Needed for absolute children */
-}
-
-.equal-height-wrapper iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  border: none;
-}
     
   </style>
 </head>
@@ -320,20 +300,16 @@ iframe {
 </div>
 
 <!-- ROW 2: PIE (SMALL) + HORIZONTAL BAR (LARGE) -->
-<div class="row-two-chart-grid">
-
-  <div class="chart-card">
-    <h3>See Jeevika as Easiest Loan Source</h3>
-    <div class="equal-height-wrapper">
-    <iframe src="https://datawrapper.dwcdn.net/z46Vl/2/" scrolling="no"></iframe>
+<div class="overall-row2">
+  <div class="chart-card small-chart">
+    <h3>Pie Chart Title</h3>
+    <iframe src="URL_FOR_PIE_CHART" height="350"></iframe>
   </div>
 
-  <div class="chart-card">
-    <h3>57% State an Income Increase due to Jeevika</h3>
-    <div class="equal-height-wrapper">
-    <iframe src="https://datawrapper.dwcdn.net/0N2px/1/" scrolling="no"></iframe>
+  <div class="chart-card large-chart">
+    <h3>Horizontal Bar Chart Title</h3>
+    <iframe src="URL_FOR_HORIZONTAL_CHART" height="350"></iframe>
   </div>
-
 </div>
 
 <!-- ROW 3: FULL-WIDTH CHART -->
