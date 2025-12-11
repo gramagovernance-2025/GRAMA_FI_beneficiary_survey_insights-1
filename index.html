@@ -179,17 +179,35 @@
 
 .stats-box {
   background: white;
+  padding: 25px;
   border-radius: 10px;
-  padding: 20px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  font-size: 16px;
-  color: #800019; /* <-- Maroon theme color */
-  line-height: 1.5;
-  border: 1px solid #e0e0e0;
+  color: #800019;
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stats-box ul {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.stats-box li {
+  font-size: 20px;       /* larger text */
+  line-height: 1.4;      /* tighter spacing */
+  margin-bottom: 12px;
 }
 
 .stats-box strong {
-  color: #800019; /* ensures bold text also stays maroon */
+  font-weight: 700;
+  color: #800019;
+}
+
+/* Ensures box doesn't stretch vertically */
+.however-row2 .stats-box {
+  max-height: 380px;
 }
 
     
@@ -369,10 +387,17 @@
   </div>
 
   <!-- COLUMN 2 → Stats Box -->
-  <div class="stats-box">
-    <p><strong>84%</strong> of all respondents state that the Samooh leadership has <strong>never changed</strong>.</p>
-    <p><strong>21 out of 44</strong> respondents state that leaders in their Samooh belong to the <strong>same jaati</strong>.</p>
-  </div>
+<div class="stats-box">
+  <ul>
+    <li><strong>84%</strong> of all respondents state that the Samooh leadership has 
+        <strong>never changed</strong>.
+    </li>
+
+    <li><strong>21 out of 44</strong> respondents say their Samooh leaders belong to the 
+        <strong>same jaati</strong>.
+    </li>
+  </ul>
+</div>
 
   <!-- COLUMN 3 → Vertical Bar Chart -->
   <div class="chart-card">
