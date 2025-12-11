@@ -154,6 +154,47 @@
   margin-top: 35px;
 }
 
+/* HOWEVER SECTION */
+
+/* Row 1: Three equal horizontal bar charts */
+.however-row1 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  margin-top: 40px;
+}
+
+/* Row 2: 3 columns — Pie, Pie, Stats Card */
+.however-row2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; 
+  gap: 25px;
+  margin-top: 35px;
+}
+
+.stats-box {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 18px;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* Force equal height for pie/bar charts in row 2 */
+.however-row2 iframe {
+  height: 350px !important;
+}
+
+/* Row 3: Full width */
+.however-row3 {
+  margin-top: 35px;
+}
+
     
   </style>
 </head>
@@ -297,6 +338,58 @@
   <h3>Have a Good Relationship with their Leaders </h3>
   <iframe src="https://datawrapper.dwcdn.net/P3cjo/2/" height="420"></iframe>
 </div>
+
+<h2>However, Jeevika SHG Members...</h2>
+
+<!-- ROW 1 → 3 Horizontal Bar Charts -->
+<div class="however-row1">
+
+  <div class="chart-card">
+    <h3>Would Like Support in: </h3>
+    <iframe src="https://datawrapper.dwcdn.net/VEvQp/1/" scrolling="no"></iframe>
+  </div>
+
+  <div class="chart-card">
+    <h3>Would Like Training in: </h3>
+    <iframe src="https://datawrapper.dwcdn.net/dSZNf/1/" scrolling="no"></iframe>
+  </div>
+
+  <div class="chart-card">
+    <h3>Would Like Jeevika to Provide Further Assistance in: </h3>
+    <iframe src="https://datawrapper.dwcdn.net/wfX5T/1/" scrolling="no"></iframe>
+  </div>
+
+</div>
+
+
+<!-- ROW 2 → Pie + Pie + Stats Box -->
+<div class="however-row2">
+
+  <div class="chart-card">
+    <h3>See CM didi holding high influence in Samooh</h3>
+    <iframe src="https://datawrapper.dwcdn.net/0m1Ud/1/></iframe>
+  </div>
+
+  <div class="chart-card">
+    <h3>Mostly don't know who Bank Sakhi is </h3>
+    <iframe src="https://datawrapper.dwcdn.net/vLeIG/2/"></iframe>
+  </div>
+
+  <!-- STATS BOX -->
+  <div class="stats-box">
+    <p><strong>84%</strong> of all respondents state that the Samooh leadership has <strong>never changed</strong>.</p>
+    <p><strong>21 out of 44</strong> respondents state that leaders in their Samooh belong to the <strong>same jaati</strong>.</p>
+  </div>
+
+</div>
+
+
+<!-- ROW 3 → Full-width Vertical Bar Chart -->
+<div class="chart-card however-row3">
+  <h3>Want the pre-determined savings amount to increase to...</h3>
+  <iframe src="https://datawrapper.dwcdn.net/eJW7g/1/"></iframe>
+</div>
+
   
 </div>
 
