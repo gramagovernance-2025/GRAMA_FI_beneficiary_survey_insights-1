@@ -232,6 +232,26 @@
   border: 1px solid #ccc;
   font-size: 14px;
 }
+
+/* Fixed chart viewport */
+.chart-frame {
+  height: 420px;          /* controls visual consistency */
+  overflow-y: auto;       /* allow scrolling inside */
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Make iframe fill the wrapper */
+.chart-frame iframe {
+  width: 100%;
+  min-height: 100%;
+  border: none;
+}
+
+.chart-card iframe {
+  height: 380px;      /* or 400px depending on section */
+  overflow: auto;
+}
     
   </style>
 </head>
@@ -279,13 +299,14 @@
   </div>
 
   <h3>Income Source </h3>
-
+  <div class="chart-frame">
   <iframe
     id="incomesource"
     src="https://datawrapper.dwcdn.net/1Dc9F/?v=4"
     height="380"
     style="width: 100%; border: none;">
   </iframe>
+  </div>
 
     </div>
 
@@ -299,13 +320,14 @@
   </div>
 
   <h3>Education Level</h3>
-
+  <div class="chart-frame">
   <iframe
     id="education"
     src="https://datawrapper.dwcdn.net/f6O2L/2/"
     height="380"
     style="width: 100%; border: none;">
   </iframe>
+  </div>
       
     </div>
 
@@ -319,9 +341,11 @@
         </select>
       </div>
       <h3>Religion</h3>
+      <div class="chart-frame">
       <iframe id="religion"
               src="https://datawrapper.dwcdn.net/3pQdT/3/"
               height="493"></iframe>
+       </div>
     </div>
 
     <!-- Caste -->
@@ -333,9 +357,11 @@
         </select>
       </div>
       <h3>Caste</h3>
+      <div class="chart-frame">
       <iframe id="caste"
               src="https://datawrapper.dwcdn.net/Fm16H/3/"
               height="533"></iframe>
+      </div>
     </div>
 
     <!-- Membership Status -->
@@ -347,9 +373,11 @@
         </select>
       </div>
       <h3>Membership Status</h3>
+      <div class="chart-frame">
       <iframe id="membership_status"
               src="https://datawrapper.dwcdn.net/DHMgq/3/"
               height="493"></iframe>
+      </div>
     </div>
 
 
@@ -402,13 +430,14 @@
     </div>
 
     <h3>Have you ever taken a loan from your Jeevika Samooh?</h3>
-
+    <div class="chart-frame">
     <iframe
       id="loan_taken_jeevika"
       src="https://datawrapper.dwcdn.net/Hd8sK/4/"
       style="width: 100%; border: none;"
       height="400">
     </iframe>
+    </div>
 
   </div>
 
@@ -424,7 +453,7 @@
     </div>
 
     <h3>How did you use the loan amount?</h3>
-
+    <div class="chart-frame">
     <iframe
       id="loan_use"
       src="https://datawrapper.dwcdn.net/irQy6/7/"
@@ -433,7 +462,7 @@
       style="width: 100%; border: none;"
       height="289">
     </iframe>
-
+    </div>
   </div>
 
 </div>
@@ -455,12 +484,14 @@
 
   <h3>How helpful has Jeevika been in your life?</h3>
 
+  <div class="chart-frame">  
   <iframe
     id="helpfuljeevika"
     src="https://datawrapper.dwcdn.net/19928/5/"
     height="380"
     style="width: 100%; border: none;">
   </iframe>
+  </div>
 
 </div>
 
@@ -473,9 +504,12 @@
         </select>
       </div>
       <h3>Are you satisfied with the loan amount?</h3>
+      <div class="chart-frame">
       <iframe id="loan_satisfaction"
               src="https://datawrapper.dwcdn.net/aa1py/3/"
               height="399"></iframe>
+      </div>
+      
     </div>
 
     <!-- CM Rating -->
@@ -487,9 +521,11 @@
         </select>
       </div>
       <h3>How would you rate your CM didi?</h3>
+      <div class="chart-frame">
       <iframe id="cm_rating"
               src="https://datawrapper.dwcdn.net/9R3Xo/3/"
               height="380"></iframe>
+       </div>
     </div>
 
 <!-- ROW 2: PIE (SMALL) + HORIZONTAL BAR (LARGE) -->
@@ -594,7 +630,8 @@ function changeChart(selectEl, iframeId) {
   iframe.src = selectEl.value;
 }
 </script>
-  
+
+<!--    
 <script>
 window.addEventListener("message", event => {
   if (event.data["datawrapper-height"]) {
@@ -610,3 +647,4 @@ window.addEventListener("message", event => {
   }
 });
 </script>
+-->
