@@ -386,21 +386,58 @@
       <div class="kpi-sub">Range: 1,000-2,00,000</div>
     </div>
   </div>
-
+    
   <!-- TWO CHARTS BELOW EXPERIENCE KPIs -->
-  <div class="two-chart-grid">
+<div class="two-chart-grid">
 
-    <div class="chart-card">
-      <h3>Have you ever taken a loan from your Jeevika Samooh?</h3>
-      <iframe src="https://datawrapper.dwcdn.net/Hd8sK/4/" style="width: 100%; border: none;" height="400"></iframe>
+  <!-- CHART 1 -->
+  <div class="chart-card">
+
+    <!-- Dropdown -->
+    <div class="chart-selector">
+      <select onchange="changeChart(this, 'loan_taken_jeevika')">
+        <option value="https://datawrapper.dwcdn.net/Hd8sK/4/">Full sample</option>
+        <option value="https://datawrapper.dwcdn.net/iS76C/1/">Sub-sample A</option>
+      </select>
     </div>
 
-    <div class="chart-card">
-      <h3>How did you use the loan amount? </h3>
-      <iframe title="" aria-label="Bar Chart" id="datawrapper-chart-irQy6" src="https://datawrapper.dwcdn.net/irQy6/7/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="289" data-external="1"></iframe><script type="text/javascript">window.addEventListener("message",function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r,i=0;r=e[i];i++)if(r.contentWindow===a.source){var d=a.data["datawrapper-height"][t]+"px";r.style.height=d}}});</script>
-    </div>
+    <h3>Have you ever taken a loan from your Jeevika Samooh?</h3>
+
+    <iframe
+      id="loan_taken_jeevika"
+      src="https://datawrapper.dwcdn.net/Hd8sK/4/"
+      style="width: 100%; border: none;"
+      height="400">
+    </iframe>
 
   </div>
+
+  <!-- CHART 2 -->
+  <div class="chart-card">
+
+    <!-- Dropdown -->
+    <div class="chart-selector">
+      <select onchange="changeChart(this, 'loan_use')">
+        <option value="https://datawrapper.dwcdn.net/irQy6/7/">Full sample</option>
+        <option value="https://datawrapper.dwcdn.net/t9K2a/1/">Sub-sample A</option>
+      </select>
+    </div>
+
+    <h3>How did you use the loan amount?</h3>
+
+    <iframe
+      id="loan_use"
+      src="https://datawrapper.dwcdn.net/irQy6/7/"
+      scrolling="no"
+      frameborder="0"
+      style="width: 100%; border: none;"
+      height="289">
+    </iframe>
+
+  </div>
+
+</div>
+
 
   <h2>Overall: </h2>
 
