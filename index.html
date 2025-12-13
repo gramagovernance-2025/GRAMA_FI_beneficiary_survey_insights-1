@@ -218,6 +218,20 @@
   margin-top: 35px;
 }
 
+/* Dropdown for sample selection */
+.chart-selector {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+.chart-selector select {
+  font-family: 'Inter', sans-serif;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
     
   </style>
 </head>
@@ -331,10 +345,24 @@
 <!-- ROW 1: THREE EQUAL HORIZONTAL BAR CHARTS -->
 <div class="overall-row3">
   <div class="chart-card">
-    <h3> How helpful has Jeevika been in your life? </h3>
-    <iframe title="" aria-label="Column Chart" id="datawrapper-chart-19928" src="https://datawrapper.dwcdn.net/19928/5/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="380" data-external="1"></iframe><script type="text/javascript">window.addEventListener("message",function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r,i=0;r=e[i];i++)if(r.contentWindow===a.source){var d=a.data["datawrapper-height"][t]+"px";r.style.height=d}}});</script>
-    <!-- <iframe src="https://datawrapper.dwcdn.net/19928/3/" height="350"></iframe> -->
+
+  <div class="chart-selector">
+    <select onchange="changeChart(this, 'helpfuljeevika')">
+      <option value="https://datawrapper.dwcdn.net/19928/5/">Full sample</option>
+      <option value="https://datawrapper.dwcdn.net/1Hpjn/1/">Angika</option>
+    </select>
   </div>
+
+  <h3>How helpful has Jeevika been in your life?</h3>
+
+  <iframe
+    id="helpfuljeevika"
+    src="https://datawrapper.dwcdn.net/19928/5/"
+    height="380"
+    style="width: 100%; border: none;">
+  </iframe>
+
+</div>
 
   <div class="chart-card">
     <h3>Are you satisfied with the loan amount? </h3>
@@ -445,6 +473,13 @@
 </div>
 
 <!-- Datawrapper auto-resize -->
+<script>
+function changeChart(selectEl, iframeId) {
+  const iframe = document.getElementById(iframeId);
+  iframe.src = selectEl.value;
+}
+</script>
+  
 <script>
 window.addEventListener("message", event => {
   if (event.data["datawrapper-height"]) {
