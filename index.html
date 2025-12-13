@@ -512,18 +512,53 @@
 
     <div class="however-row1">
         <div class="chart-card">
-            <h3>Where should Jeevika focus more spending?</h3>
-            <iframe src="https://datawrapper.dwcdn.net/VEvQp/4/"></iframe>
+          <div class="chart-selector">
+        <select onchange="changeChart(this, 'jeevika_spending')">
+            <option value="https://datawrapper.dwcdn.net/VEvQp/4/">Full sample</option>
+            <option value="https://datawrapper.dwcdn.net/NE6nK/1/">Angika</option>
+        </select>
+        </div>
+
+        <h3>Where should Jeevika focus more spending?</h3>
+
+        <iframe
+        id="jeevika_spending"
+        src="https://datawrapper.dwcdn.net/VEvQp/4/"
+        height="380">
+        </iframe>
         </div>
 
         <div class="chart-card">
-            <h3>Do you want Jeevika to provide training?</h3>
-            <iframe src="https://datawrapper.dwcdn.net/SQtb4/3/"></iframe>
+            <div class="chart-selector">
+        <select onchange="changeChart(this, 'jeevika_training')">
+            <option value="https://datawrapper.dwcdn.net/SQtb4/3/">Full sample</option>
+            <option value="https://datawrapper.dwcdn.net/iCiSs/1/">Angika</option>
+        </select>
+        </div>
+
+        <h3>Do you want Jeevika to provide training?</h3>
+
+        <iframe
+        id="jeevika_training"
+        src="https://datawrapper.dwcdn.net/SQtb4/3/"
+        height="380">
+        </iframe>
         </div>
 
         <div class="chart-card">
-            <h3>Where can Jeevika improve?</h3>
-            <iframe src="https://datawrapper.dwcdn.net/wfX5T/3/"></iframe>
+            <div class="chart-selector">
+        <select onchange="changeChart(this, 'jeevika_improve')">
+            <option value="https://datawrapper.dwcdn.net/wfX5T/3/">Full sample</option>
+            <option value="https://datawrapper.dwcdn.net/0dips/2/">Angika</option>
+        </select>
+        </div>
+
+        <h3>Where can Jeevika improve?</h3>
+
+        <iframe
+        id="jeevika_improve"
+        src="https://datawrapper.dwcdn.net/wfX5T/3/"
+        height="380">
         </div>
     </div>
 
