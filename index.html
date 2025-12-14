@@ -220,6 +220,16 @@
 <div class="container">
 
     <!-- TOP KPI -->
+    <div class="chart-selector" style="justify-content:center; margin-bottom:10px;">
+    <select id="sampleSizeSelect">
+        <option value="full_sample">Full sample</option>
+        <option value="Member">Member</option>
+        <option value="President">President</option>
+        <option value="Secretary">Secretary</option>
+        <option value="Treasurer">Treasurer</option>
+    </select>
+     </div>
+    
     <div class="scorecard">
         <span id="total-respondents">414</span>
         <div class="scorecard-label">Total Respondents Surveyed</div>
@@ -710,10 +720,11 @@ let kpiData = {};
 
 fetch("shg_role_summary.json")
     .then(response => response.json())
-    .then(data => {
-        kpiData = data;
-        updateKPIs("full_sample"); // initial load
-    })
+        .then(data => {
+            kpiData = data;
+            updateKPIs("full_sample");
+            updateSampleSize("full_sample");
+            })
     .catch(err => console.error("Failed to load KPI JSON:", err));
 </script>
 
@@ -722,9 +733,7 @@ function updateKPIs(role) {
     const d = kpiData[role];
     if (!d) return;
 
-    // Update sample size
-    document.getElementById("total-respondents").textContent = d.n;
-    
+  
     // Mean loans
     document.getElementById("kpi-mean-loans-value").textContent  = d.mean_loans.value;
     document.getElementById("kpi-mean-loans-median").textContent = "Median: " + d.mean_loans.median;
@@ -758,6 +767,28 @@ function updateKPIs(role) {
     });
     });
   </script>
+
+<script>
+function updateSampleSize(role) {
+    const d = kpiData[role];
+    if (!d) return;
+
+    document.getElementById("total-respondents").textContent = d.n;
+}
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const sampleSelect = document.getElementById("sampleSizeSelect");
+    if (!sampleSelect) return;
+
+    sampleSelect.addEventListener("change", function () {
+        updateSampleSize(this.value);
+    });
+});
+</script>
+
+
 
 
 </body>
