@@ -204,6 +204,26 @@
     border: 1px solid #ccc;
 }
 
+.logo-row {
+    display: flex;
+    align-items: center;       /* vertical alignment */
+    justify-content: center;   /* center the pair */
+    gap: 30px;                 /* space between logos */
+    margin-bottom: 15px;
+}
+
+.logo-row img {
+    height: 70px;              /* uniform visual height */
+    width: auto;               /* preserve aspect ratio */
+    object-fit: contain;
+}
+
+/* Optional: slightly emphasize the main logo */
+.logo-main {
+    height: 80px;
+}
+
+        
     </style>
 </head>
 
