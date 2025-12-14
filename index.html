@@ -331,34 +331,48 @@
     <!-- EXPERIENCE -->
     <h2>Experience of a Jeevika SHG Member</h2>
 
+    <div class="chart-selector" style="justify-content:flex-start; margin-bottom:15px;">
+    <select id="shgRoleSelect">
+        <option value="full_sample">Full sample</option>
+        <option value="Member">Member</option>
+        <option value="President">President</option>
+        <option value="Secretary">Secretary</option>
+        <option value="Treasurer">Treasurer</option>
+    </select>
+        </div>
+
     <div class="experience-kpi-grid">
         <div class="kpi-card">
             <div class="kpi-title">Mean Loans Taken</div>
-            <div class="kpi-value">2.04</div>
-            <div class="kpi-sub">Median: 2</div>
-            <div class="kpi-sub">Range: 1–10</div>
+            <div class="kpi-value" id="kpi-mean-loans-value">2.04</div>
+            <div class="kpi-sub" id="kpi-mean-loans-median">Median: 2</div>
+            <div class="kpi-sub" id="kpi-mean-loans-range">Range: 1–10</div>
         </div>
+
 
         <div class="kpi-card">
             <div class="kpi-title">Mean Delivery Time (Days)</div>
-            <div class="kpi-value">19.8</div>
-            <div class="kpi-sub">Median: 10</div>
-            <div class="kpi-sub">Range: 0–180</div>
+            <div class="kpi-value" id="kpi-delivery-value">19.8</div>
+            <div class="kpi-sub" id="kpi-delivery-median">Median: 10</div>
+            <div class="kpi-sub" id="kpi-delivery-range">Range: 0–180</div>
         </div>
+
 
         <div class="kpi-card">
             <div class="kpi-title">Mean Membership Years</div>
-            <div class="kpi-value">7.06</div>
-            <div class="kpi-sub">Median: 7</div>
-            <div class="kpi-sub">Range: 0–19</div>
+            <div class="kpi-value" id="kpi-membership-value">7.06</div>
+            <div class="kpi-sub" id="kpi-membership-median">Median: 7</div>
+            <div class="kpi-sub" id="kpi-membership-range">Range: 0–19</div>
         </div>
+
 
         <div class="kpi-card">
             <div class="kpi-title">Mean Loan Amount (₹)</div>
-            <div class="kpi-value">37,659</div>
-            <div class="kpi-sub">Median: 30,000</div>
-            <div class="kpi-sub">Range: 1,000–2,00,000</div>
+            <div class="kpi-value" id="kpi-loanamt-value">37,659</div>
+            <div class="kpi-sub" id="kpi-loanamt-median">Median: 30,000</div>
+            <div class="kpi-sub" id="kpi-loanamt-range">Range: 1,000–2,00,000</div>
         </div>
+
     </div>
 
     <!-- TWO CHARTS -->
@@ -689,6 +703,58 @@ function changeChart(selectEl, iframeId) {
     iframe.src = selectEl.value;
 }
 </script>
+
+    <script>
+let kpiData = {};
+
+fetch("shg_role_summary.json")
+    .then(response => response.json())
+    .then(data => {
+        kpiData = data;
+        updateKPIs("full_sample"); // initial load
+    })
+    .catch(err => console.error("Failed to load KPI JSON:", err));
+</script>
+
+    <script>
+function updateKPIs(role) {
+    const d = kpiData[role];
+    if (!d) return;
+
+    // Mean loans
+    document.getElementById("kpi-mean-loans-value").textContent  = d.mean_loans.value;
+    document.getElementById("kpi-mean-loans-median").textContent = "Median: " + d.mean_loans.median;
+    document.getElementById("kpi-mean-loans-range").textContent  = "Range: "  + d.mean_loans.range;
+
+    // Delivery time
+    document.getElementById("kpi-delivery-value").textContent  = d.delivery_time.value;
+    document.getElementById("kpi-delivery-median").textContent = "Median: " + d.delivery_time.median;
+    document.getElementById("kpi-delivery-range").textContent  = "Range: "  + d.delivery_time.range;
+
+    // Membership years
+    document.getElementById("kpi-membership-value").textContent  = d.membership_years.value;
+    document.getElementById("kpi-membership-median").textContent = "Median: " + d.membership_years.median;
+    document.getElementById("kpi-membership-range").textContent  = "Range: "  + d.membership_years.range;
+
+    // Loan amount (₹ formatting optional later)
+    document.getElementById("kpi-loanamt-value").textContent  = d.loan_amount.value;
+    document.getElementById("kpi-loanamt-median").textContent = "Median: " + d.loan_amount.median;
+    document.getElementById("kpi-loanamt-range").textContent  = "Range: "  + d.loan_amount.range;
+}
+     </script>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const roleSelect = document.getElementById("shgRoleSelect");
+    if (!roleSelect) return;
+
+    roleSelect.addEventListener("change", function () {
+        updateKPIs(this.value);
+    });
+    });
+  </script>
+
 
 </body>
 </html>
