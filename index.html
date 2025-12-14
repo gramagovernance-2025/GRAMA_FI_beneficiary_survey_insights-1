@@ -238,8 +238,25 @@
 
     <!-- MAP -->
     <div class="chart-card">
-        <h3>Respondents by District</h3>
-        <iframe src="https://datawrapper.dwcdn.net/HC2rl/5/" height="507"></iframe>
+        <div class="chart-card">
+            <div class="chart-selector">
+                <select onchange="changeChart(this, 'respondents_district')">
+                    <option value="https://datawrapper.dwcdn.net/HC2rl/5/">Full sample</option>
+                    <option value="https://datawrapper.dwcdn.net/pFAXB/1/">Member</option>
+                    <option value="https://datawrapper.dwcdn.net/TBFSA/1/">President</option>
+                    <option value="https://datawrapper.dwcdn.net/5h5oK/1/">Secretary</option>
+                    <option value="https://datawrapper.dwcdn.net/rZ36U/1/">Treasurer</option>
+                </select>
+            </div>
+
+            <h3>Respondents by District</h3>
+
+            <iframe
+                scrolling="no"
+                id="respondents_district"
+                src="https://datawrapper.dwcdn.net/HC2rl/5/"
+                height="380">
+            </iframe>
     </div>
 
     <!-- RESPONDENT CHARACTERISTICS -->
