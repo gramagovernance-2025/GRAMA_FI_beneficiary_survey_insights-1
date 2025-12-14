@@ -221,9 +221,10 @@
 
     <!-- TOP KPI -->
     <div class="scorecard">
-        414
+        <span id="total-respondents">414</span>
         <div class="scorecard-label">Total Respondents Surveyed</div>
     </div>
+
 
     <!-- MAP -->
     <div class="chart-card">
@@ -721,6 +722,9 @@ function updateKPIs(role) {
     const d = kpiData[role];
     if (!d) return;
 
+    // Update sample size
+    document.getElementById("total-respondents").textContent = d.n;
+    
     // Mean loans
     document.getElementById("kpi-mean-loans-value").textContent  = d.mean_loans.value;
     document.getElementById("kpi-mean-loans-median").textContent = "Median: " + d.mean_loans.median;
